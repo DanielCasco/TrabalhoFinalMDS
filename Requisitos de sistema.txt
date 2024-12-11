@@ -1,0 +1,26 @@
+Requisitos de Sistema
+    Criar, atualizar, consultar e apagar quartos.
+    Armazenamento e atualização de características dos quartos
+    Consulta de estado de manutenção dos quartos.
+    Listagem de quartos que requerem manutenção.
+    Registo de manutenções realizadas (tipo e data).
+    Registo e consulta de reservas.
+    Sugerir quartos com base em critérios.
+    Registo de hóspedes e seus dados pessoais.
+    Associação de reservas aos hóspedes.
+    Confirmação de reservas feitas pelos hóspedes.
+    Registo de ocorrências durante estadias.
+    Associação de ocorrências ao histórico de hóspedes.
+    Consulta de histórico de ocorrências.
+    Registo de avaliações feitas pelos hóspedes.
+    Limitação para registo de avaliações até 1 mês após a estadia.
+    Gestores têm acesso a todas as funcionalidades.
+    Funcionários podem consultar e registar manutenções, gerir reservas e confirmar reservas de hóspedes.
+    Hóspedes podem realizar reservas e registar avaliações.
+    Todos os utilizadores podem registar ocorrências.
+    Envio de notificações para confirmação de reservas feitas por hóspedes.
+    Alertas para avaliações pendentes.
+Requisitos Não-Funcionais
+    Garantir a proteção dos dados dos hóspedes e registros internos.
+    Interface amigável para diferentes tipos de utilizadores.
+    Sistema disponível 24/7 para reservas e consultas.
