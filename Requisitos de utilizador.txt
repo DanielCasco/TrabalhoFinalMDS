@@ -1,7 +1,7 @@
 Requisitos de Utilizador
     
     1. Gestores:
-        - Criar, editar e remover quartos, 
+        - Criar e remover quartos.
         - Alterar as características dos quartos.
         - Consultar e registar manutenções dos quartos.
         - Confirmar reservas feitas pelos hóspedes.
