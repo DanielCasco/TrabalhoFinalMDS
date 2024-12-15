@@ -1,21 +1,24 @@
-Requisitos de Utilizador:
-    1. Gestores
-        Criar, editar e remover quartos, 
-        Alterar as características dos quartos.
-        Consultar e registar manutenções dos quartos.
-        Confirmar reservas feitas pelos hóspedes.
-        Registar ocorrências.
-        Visualizar histórico de ocorrências dos hóspedes.
-        Consultar avaliações feitas pelos hóspedes.
+Requisitos de Utilizador
+    
+    1. Gestores:
+        - Criar, editar e remover quartos, 
+        - Alterar as características dos quartos.
+        - Consultar e registar manutenções dos quartos.
+        - Confirmar reservas feitas pelos hóspedes.
+        - Registar ocorrências.
+        - Visualizar histórico de ocorrências dos hóspedes.
+        - Consultar avaliações feitas pelos hóspedes.
+
     2. Funcionários do Hotel:
-        Consultar a lista de quartos que precisam de manutenção.
-        Registar realização de manutenções.
-        Consultar e gerir reservas de quartos.
-        Confirmar reservas feitas pelos hóspedes.
-        Registar ocorrências durante a estadia dos hóspedes.
-        Consultar histórico de ocorrências e avaliações de hóspedes.
+        - Consultar a lista de quartos que precisam de manutenção.
+        - Registar realização de manutenções.
+        - Consultar e gerir reservas de quartos.
+        - Confirmar reservas feitas pelos hóspedes.
+        - Registar ocorrências durante a estadia dos hóspedes.
+        - Consultar histórico de ocorrências e avaliações de hóspedes.
+
     3. Hóspedes:
-        Realizar reservas de quartos.
-        Consultar o status das suas reservas.
-        Registar ocorrências.
-        Registar avaliações após a estadia (até 1 mês após o checkout).
+        - Realizar reservas de quartos.
+        - Consultar o status das suas reservas.
+        - Registar ocorrências.
+        - Registar avaliações após a estadia (até 1 mês após o checkout).
