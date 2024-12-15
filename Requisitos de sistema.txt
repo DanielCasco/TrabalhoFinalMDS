@@ -10,7 +10,7 @@ Requisitos de Sistema
     - Associação de reservas aos hóspedes.
     - Confirmação de reservas feitas pelos hóspedes.
     - Registo de ocorrências durante estadias.
-    - Associação de ocorrências ao histórico de hóspedes.
+    - Associação de hóspede ao histórico de socorrências.
     - Consulta de histórico de ocorrências.
     - Registo de avaliações feitas pelos hóspedes.
     - Limitação para registo de avaliações até 1 mês após a estadia.
