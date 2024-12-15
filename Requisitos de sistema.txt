@@ -20,6 +20,7 @@ Requisitos de Sistema
     - Todos os utilizadores podem registar ocorrências.
     - Envio de notificações para confirmação de reservas feitas por hóspedes.
     - Alertas para avaliações pendentes.
+
 Requisitos Não-Funcionais
     - Garantir a proteção dos dados dos hóspedes e registros internos.
     - Interface amigável para diferentes tipos de utilizadores.
