@@ -1,24 +1,27 @@
 Requisitos de Utilizador
     
     1. Gestores:
-        - Criar e remover quartos.
-        - Alterar as características dos quartos.
-        - Consultar e registar manutenções dos quartos.
-        - Confirmar reservas feitas pelos hóspedes.
-        - Registar ocorrências.
-        - Visualizar histórico de ocorrências dos hóspedes.
-        - Consultar avaliações feitas pelos hóspedes.
+       1 - Criar quartos.
+       2 - Alterar as características dos quartos.
+       3 - Consultar e registar manutenções dos quartos.
+       4 - Remover quartos.
+       13 - Confirmar reservas feitas pelos hóspedes.
+       14 - Registar ocorrências.
+       16 - Visualizar histórico de ocorrências dos hóspedes.
+       25 - Consultar avaliações feitas pelos hóspedes.
 
     2. Funcionários do Hotel:
-        - Consultar a lista de quartos que precisam de manutenção.
-        - Registar realização de manutenções.
-        - Consultar e gerir reservas de quartos.
-        - Confirmar reservas feitas pelos hóspedes.
-        - Registar ocorrências durante a estadia dos hóspedes.
-        - Consultar histórico de ocorrências e avaliações de hóspedes.
+       6 - Consultar a lista de quartos que precisam de manutenção.
+       7 - Registar realização de manutenções.
+       13 - Confirmar reservas feitas pelos hóspedes.
+       14 - Registar ocorrências durante a estadia dos hóspedes.
+       16 - Consultar histórico de ocorrências de hóspedes.
+       25 - Consultar avaliações feitas pelos hóspedes.
+       26 - Consultar e gerir reservas de quartos.
 
     3. Hóspedes:
-        - Realizar reservas de quartos.
-        - Consultar o status das suas reservas.
-        - Registar ocorrências.
-        - Registar avaliações após a estadia (até 1 mês após o checkout).
+       9 - Realizar reservas de quartos.
+       26 - Consultar o status das suas reservas.
+       14 - Registar ocorrências.
+       17 - Registar avaliações após a estadia.
+       18 - Limitação para registo de avaliações até 1 mês após a estadia.
