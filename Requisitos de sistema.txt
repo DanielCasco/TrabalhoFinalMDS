@@ -22,7 +22,7 @@ Requisitos de Sistema
    22 - Hóspedes podem realizar reservas e registar avaliações.
    23 - Todos os utilizadores podem registar ocorrências.
    24 - Envio de notificações para confirmação de reservas feitas por hóspedes.
-   25 - Alertas para avaliações pendentes.
+   25 - Consultar avaliações feitas pelos hóspedes.
 
 Requisitos Não-Funcionais
    26 - Garantir a proteção dos dados dos hóspedes e registros internos.
