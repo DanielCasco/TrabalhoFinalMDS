@@ -7,7 +7,7 @@ Requisitos de Sistema
    6 - Consulta de estado de manutenção dos quartos.
    7 - Listagem de quartos que requerem manutenção.
    8 - Registo de manutenções realizadas (tipo e data).
-   9 - Registo e consulta de reservas.
+   9 - Registo de reservas.
    10 - Sugerir quartos com base em critérios.
    11 - Registo de hóspedes e seus dados pessoais.
    12 - Associação de reservas aos hóspedes.
@@ -23,6 +23,7 @@ Requisitos de Sistema
    23 - Todos os utilizadores podem registar ocorrências.
    24 - Envio de notificações para confirmação de reservas feitas por hóspedes.
    25 - Consultar avaliações feitas pelos hóspedes.
+   26 - Consulta de reservas.
 
 Requisitos Não-Funcionais
    26 - Garantir a proteção dos dados dos hóspedes e registros internos.
