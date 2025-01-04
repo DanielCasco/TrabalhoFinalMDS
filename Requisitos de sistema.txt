@@ -1,27 +1,30 @@
 Requisitos de Sistema
-    - Criar, atualizar, consultar e apagar quartos.
-    - Armazenamento e atualização de características dos quartos
-    - Consulta de estado de manutenção dos quartos.
-    - Listagem de quartos que requerem manutenção.
-    - Registo de manutenções realizadas (tipo e data).
-    - Registo e consulta de reservas.
-    - Sugerir quartos com base em critérios.
-    - Registo de hóspedes e seus dados pessoais.
-    - Associação de reservas aos hóspedes.
-    - Confirmação de reservas feitas pelos hóspedes.
-    - Registo de ocorrências durante estadias.
-    - Associação de hóspede ao histórico de ocorrências.
-    - Consulta de histórico de ocorrências.
-    - Registo de avaliações feitas pelos hóspedes.
-    - Limitação para registo de avaliações até 1 mês após a estadia.
-    - Gestores têm acesso a todas as funcionalidades.
-    - Funcionários podem consultar e registar manutenções, gerir reservas e confirmar reservas de hóspedes.
-    - Hóspedes podem realizar reservas e registar avaliações.
-    - Todos os utilizadores podem registar ocorrências.
-    - Envio de notificações para confirmação de reservas feitas por hóspedes.
-    - Alertas para avaliações pendentes.
+   1 - Criar quartos.
+   2 - Atualizar quartos.
+   3 - Consultar quartos.
+   4 - Apagar quartos.    
+   5 - Armazenamento e atualização de características dos quartos
+   6 - Consulta de estado de manutenção dos quartos.
+   7 - Listagem de quartos que requerem manutenção.
+   8 - Registo de manutenções realizadas (tipo e data).
+   9 - Registo e consulta de reservas.
+   10 - Sugerir quartos com base em critérios.
+   11 - Registo de hóspedes e seus dados pessoais.
+   12 - Associação de reservas aos hóspedes.
+   13 - Confirmação de reservas feitas pelos hóspedes.
+   14 - Registo de ocorrências durante estadias.
+   15 - Associação de hóspede ao histórico de ocorrências.
+   16 - Consulta de histórico de ocorrências.
+   17 - Registo de avaliações feitas pelos hóspedes.
+   18 - Limitação para registo de avaliações até 1 mês após a estadia.
+   20 - Gestores têm acesso a todas as funcionalidades.
+   21 - Funcionários podem consultar e registar manutenções, gerir reservas e confirmar reservas de hóspedes.
+   22 - Hóspedes podem realizar reservas e registar avaliações.
+   23 - Todos os utilizadores podem registar ocorrências.
+   24 - Envio de notificações para confirmação de reservas feitas por hóspedes.
+   25 - Alertas para avaliações pendentes.
 
 Requisitos Não-Funcionais
-    - Garantir a proteção dos dados dos hóspedes e registros internos.
-    - Interface amigável para diferentes tipos de utilizadores.
-    - Sistema disponível 24/7 para reservas e consultas.
+   26 - Garantir a proteção dos dados dos hóspedes e registros internos.
+   27 - Interface amigável para diferentes tipos de utilizadores.
+   28 - Sistema disponível 24/7 para reservas e consultas.
