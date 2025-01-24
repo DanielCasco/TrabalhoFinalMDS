@@ -26,19 +26,27 @@ public class Quarto {
         this.manutencoes = new ArrayList<>();
     }
 
+    @Override
+    public String toString() {
+        return "Quarto[id=" + id + ", capacidade=" + capacidade + ", camas=" + numCamas +
+                ", vista=" + tipoVista + ", cozinha=" + cozinha + 
+                ", banheiros=" + numWC + ", varanda=" + varanda + 
+                ", disponível=" + disponivel + "]";
+    }
+
+
     public boolean verificarDisponibilidade() {
         return disponivel;
     }
 
-    public void sugerirQuarto() {
-        System.out.println("Sugestão de quarto: " + this);
+    public static void criarQuarto(Quarto quarto) {
+        System.out.println("Quarto criado: " + quarto);
     }
 
-    @Override
-    public String toString() {
-        return "Quarto[id=" + id + ", capacidade=" + capacidade + ", vista=" + tipoVista + "]";
+    public static void removerQuarto(Quarto quarto) {
+        System.out.println("Quarto removido: " + quarto);
     }
-
+ 
     // Getters e setters
     public int getId() {
         return id;
