@@ -45,6 +45,18 @@ public class GerenciaReservas {
         return reservas;
     }
 
+    public void confirmarReserva(int reservaId) {
+        // Buscar a reserva pelo ID
+        Reserva reserva = reservas.stream()
+                .filter(r -> r.getId() == reservaId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Reserva não encontrada"));
+    
+        // Alterar o status da reserva para "Confirmado"
+        reserva.setStatus("Confirmado");
+        System.out.println("Reserva " + reservaId + " confirmada com sucesso!");
+    }
+
     public void adicionarQuarto(Quarto quarto) {
         quartos.add(quarto);
     }
