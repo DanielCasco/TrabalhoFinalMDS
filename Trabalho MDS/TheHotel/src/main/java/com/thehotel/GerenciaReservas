@@ -1,0 +1,55 @@
+package com.thehotel;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class GerenciaReservas {
+    private List<Reserva> reservas;
+    private List<Quarto> quartos; 
+    private List<Utilizador> utilizadores;   
+
+    public GerenciaReservas() {
+        this.reservas = new ArrayList<>();
+        this.quartos = new ArrayList<>(); 
+        this.utilizadores = new ArrayList<>();      
+    }
+
+    public Reserva criarReserva(int id, Date dataInicio, Date dataFim, int quartoId, int hospedeId) {
+        // Buscar quarto pelo ID
+        Quarto quarto = quartos.stream()
+                .filter(q -> q.getId() == quartoId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Quarto não encontrado"));
+
+        // Buscar hóspede pelo ID
+        Utilizador hospede = utilizadores.stream()
+                .filter(u -> u.getId() == hospedeId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Hóspede não encontrado"));
+
+        // Criar nova reserva
+        Reserva novaReserva = new Reserva(id, dataInicio, dataFim);
+
+        // Adicionar o quarto e o hóspede à reserva
+        novaReserva.adicionarQuarto(quarto);
+        novaReserva.adicionarHospede(hospede);
+
+        // Adicionar a reserva à lista de reservas
+        reservas.add(novaReserva);
+
+        return novaReserva;
+    }
+
+    public List<Reserva> listarReservas() {
+        return reservas;
+    }
+
+    public void adicionarQuarto(Quarto quarto) {
+        quartos.add(quarto);
+    }
+
+    public void adicionarUtilizador(Utilizador utilizador) {
+        utilizadores.add(utilizador);
+    }
+}
