@@ -87,4 +87,24 @@ class TestesUnitarios {
         assertEquals(1, reservaCriada.getHospedes().size());
         assertEquals(hospede, reservaCriada.getHospedes().get(0));
     }
+
+
+       @Test
+    public void testConfirmarReserva() {
+
+        Quarto quarto = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
+        Utilizador utilizador = new Utilizador(1, "teste", "teste@example.com");
+    
+        GerenciaReservas.adicionarQuarto(quarto); // Adiciona o quarto
+        GerenciaReservas.adicionarUtilizador(utilizador); // Adiciona o utilizador
+
+    // Criar uma reserva
+    Reserva reserva = GerenciaReservas.criarReserva(1, new Date(), new Date(), 1, 1);
+
+    // Confirmar a reserva
+    GerenciaReservas.confirmarReserva(1);
+
+    // Verificar o status da reserva
+    assertEquals("Confirmado", reserva.getStatus());
+}
 }
