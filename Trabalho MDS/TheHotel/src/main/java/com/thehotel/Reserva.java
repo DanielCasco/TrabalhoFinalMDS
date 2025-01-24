@@ -21,6 +21,18 @@ public class Reserva {
         this.hospedes = new ArrayList<>();
     }
 
+    @Override
+public String toString() {
+    return "Reserva{" +
+            "id=" + id +
+            ", dataInicio=" + dataInicio +
+            ", dataFim=" + dataFim +
+            ", status='" + status +
+            ", quartos=" + quartos +
+            ", hospedes=" + hospedes +
+            '}';
+}
+
     public void adicionarQuarto(Quarto quarto) {
         quartos.add(quarto);
     }
@@ -77,5 +89,7 @@ public class Reserva {
     public void setHospedes(List<Utilizador> hospedes) {
         this.hospedes = hospedes;
     }
-    
+
+
+
 }
