@@ -34,5 +34,82 @@ public class Quarto {
         System.out.println("Sugestão de quarto: " + this);
     }
 
-    
+    @Override
+    public String toString() {
+        return "Quarto[id=" + id + ", capacidade=" + capacidade + ", vista=" + tipoVista + "]";
+    }
+
+    // Getters e setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(int capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public int getNumCamas() {
+        return numCamas;
+    }
+
+    public void setNumCamas(int numCamas) {
+        this.numCamas = numCamas;
+    }
+
+    public String getTipoVista() {
+        return tipoVista;
+    }
+
+    public void setTipoVista(String tipoVista) {
+        this.tipoVista = tipoVista;
+    }
+
+    public boolean isCozinha() {
+        return cozinha;
+    }
+
+    public void setCozinha(boolean cozinha) {
+        this.cozinha = cozinha;
+    }
+
+    public int getNumWC() {
+        return numWC;
+    }
+
+    public void setNumWC(int numWC) {
+        this.numWC = numWC;
+    }
+
+    public boolean isVaranda() {
+        return varanda;
+    }
+
+    public void setVaranda(boolean varanda) {
+        this.varanda = varanda;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public List<Manutencao> getManutencoes() {
+        return manutencoes;
+    }
+
+    public void setManutencoes(List<Manutencao> manutencoes) {
+        this.manutencoes = manutencoes;
+    }
 }
+
