@@ -29,5 +29,53 @@ public class Reserva {
         hospedes.add(hospede);
     }
 
-    // Getters e setters omitidos por brevidade
+    // Getters e setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataFim() {
+        return dataFim;
+    }
+
+    public void setDataFim(Date dataFim) {
+        this.dataFim = dataFim;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Quarto> getQuartos() {
+        return quartos;
+    }
+
+    public void setQuartos(List<Quarto> quartos) {
+        this.quartos = quartos;
+    }
+
+    public List<Utilizador> getHospedes() {
+        return hospedes;
+    }
+
+    public void setHospedes(List<Utilizador> hospedes) {
+        this.hospedes = hospedes;
+    }
+    
 }
