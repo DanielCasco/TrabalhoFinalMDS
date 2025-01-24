@@ -65,4 +65,46 @@ class TestesUnitarios {
         
         assertEquals(1, quarto.getId());  
     }
+
+    @Test
+    public void testCriarReserva() {
+        Date dataInicio = new Date();
+        Date dataFim = new Date(dataInicio.getTime() + 86400000L); 
+
+        Reserva reservaCriada = new Reserva(2, dataInicio, dataFim);
+        reservaCriada.adicionarQuarto(quarto); // Associando um quarto à reserva
+        Utilizador hospede = new Utilizador(1, "teste", "teste@email.com");
+        reservaCriada.adicionarHospede(hospede); // Associando um hóspede à reserva
+
+        assertNotNull(reservaCriada);
+        assertEquals(2, reservaCriada.getId());
+        assertEquals(dataInicio, reservaCriada.getDataInicio());
+        assertEquals(dataFim, reservaCriada.getDataFim());
+        assertEquals("Pendente", reservaCriada.getStatus());
+        assertFalse(reservaCriada.confirmarReserva());
+        assertEquals(1, reservaCriada.getQuartos().size());
+        assertEquals(quarto, reservaCriada.getQuartos().get(0));
+        assertEquals(1, reservaCriada.getHospedes().size());
+        assertEquals(hospede, reservaCriada.getHospedes().get(0));
+    }
+
+
+       @Test
+    public void testConfirmarReserva() {
+
+        Quarto quarto = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
+        Utilizador utilizador = new Utilizador(1, "teste", "teste@example.com");
+    
+        GerenciaReservas.adicionarQuarto(quarto); // Adiciona o quarto
+        GerenciaReservas.adicionarUtilizador(utilizador); // Adiciona o utilizador
+
+    // Criar uma reserva
+    Reserva reserva = GerenciaReservas.criarReserva(1, new Date(), new Date(), 1, 1);
+
+    // Confirmar a reserva
+    GerenciaReservas.confirmarReserva(1);
+
+    // Verificar o status da reserva
+    assertEquals("Confirmado", reserva.getStatus());
+}
 }
