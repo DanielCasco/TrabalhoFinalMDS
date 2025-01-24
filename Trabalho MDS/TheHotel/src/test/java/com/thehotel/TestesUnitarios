@@ -1,0 +1,68 @@
+package com.thehotel;
+
+import java.util.Date;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class TestesUnitarios {
+
+    private Manutencao manutencao;
+    private Quarto quarto;
+    private Reserva reserva;
+   
+
+    @BeforeEach
+    void setup() {
+        manutencao = new Manutencao(1, "Elétrica", "Troca de lâmpadas", new Date());
+        quarto = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
+        reserva = new Reserva(1, new Date(), new Date());
+    }
+
+
+    @Test
+    public void testCriarQuarto() {
+        Quarto quartoCriado = new Quarto(2, 3, 2, "cidade", false, 2, false);
+        Quarto.criarQuarto(quartoCriado);
+        
+        assertNotNull(quartoCriado);
+        assertEquals(2, quartoCriado.getId());
+        assertEquals(3, quartoCriado.getCapacidade());
+        assertEquals(2, quartoCriado.getNumCamas());
+        assertEquals("cidade", quartoCriado.getTipoVista());
+        assertFalse(quartoCriado.isCozinha());
+        assertEquals(2, quartoCriado.getNumWC());
+        assertFalse(quartoCriado.isVaranda());
+    }
+
+    @Test
+    public void testEditarQuarto() {
+        quarto.setCapacidade(4);
+        quarto.setNumCamas(2);
+        quarto.setTipoVista("piscina");
+        quarto.setCozinha(false);
+        quarto.setNumWC(2);
+        quarto.setVaranda(false);
+        
+        assertEquals(4, quarto.getCapacidade());
+        assertEquals(2, quarto.getNumCamas());
+        assertEquals("piscina", quarto.getTipoVista());
+        assertFalse(quarto.isCozinha());
+        assertEquals(2, quarto.getNumWC());
+        assertFalse(quarto.isVaranda());
+    }
+
+    @Test
+    public void testRemoverQuarto() {
+        Quarto.criarQuarto(quarto);  
+        
+        Quarto.removerQuarto(quarto);
+        
+        assertEquals(1, quarto.getId());  
+    }
+}
