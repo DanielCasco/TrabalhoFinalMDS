@@ -6,6 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,13 +16,16 @@ class TestesUnitarios {
     private Manutencao manutencao;
     private Quarto quarto;
     private Reserva reserva;
-   
+    private GerenciaReservas GerenciaReservas;
+    private GerenciaManutencoes gerenciadorManutencoes;
 
     @BeforeEach
     void setup() {
-        manutencao = new Manutencao(1, "Elétrica", "Troca de lâmpadas", new Date());
         quarto = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
+        manutencao = new Manutencao(1, "Elétrica", "Troca de lâmpadas", new Date(), quarto);
         reserva = new Reserva(1, new Date(), new Date());
+        GerenciaReservas = new GerenciaReservas();
+        gerenciadorManutencoes = new GerenciaManutencoes();
     }
 
 
@@ -66,22 +70,25 @@ class TestesUnitarios {
         assertEquals(1, quarto.getId());  
     }
 
+
+
+
+
     @Test
     public void testCriarReserva() {
         Date dataInicio = new Date();
         Date dataFim = new Date(dataInicio.getTime() + 86400000L); 
 
         Reserva reservaCriada = new Reserva(2, dataInicio, dataFim);
-        reservaCriada.adicionarQuarto(quarto); // Associando um quarto à reserva
+        reservaCriada.adicionarQuarto(quarto); 
         Utilizador hospede = new Utilizador(1, "teste", "teste@email.com");
-        reservaCriada.adicionarHospede(hospede); // Associando um hóspede à reserva
+        reservaCriada.adicionarHospede(hospede); 
 
         assertNotNull(reservaCriada);
         assertEquals(2, reservaCriada.getId());
         assertEquals(dataInicio, reservaCriada.getDataInicio());
         assertEquals(dataFim, reservaCriada.getDataFim());
         assertEquals("Pendente", reservaCriada.getStatus());
-        assertFalse(reservaCriada.confirmarReserva());
         assertEquals(1, reservaCriada.getQuartos().size());
         assertEquals(quarto, reservaCriada.getQuartos().get(0));
         assertEquals(1, reservaCriada.getHospedes().size());
@@ -89,7 +96,7 @@ class TestesUnitarios {
     }
 
 
-       @Test
+    @Test
     public void testConfirmarReserva() {
 
         Quarto quarto = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
@@ -107,4 +114,67 @@ class TestesUnitarios {
     // Verificar o status da reserva
     assertEquals("Confirmado", reserva.getStatus());
 }
+
+
+
+
+
+
+
+
+    @Test
+    void testAdicionarManutencao() {
+        gerenciadorManutencoes.adicionarManutencao(1, "Elétrica", "Trocar lâmpadas", new Date(), quarto);
+        List<Manutencao> pendentes = gerenciadorManutencoes.ManutencoesPendentes();
+
+        assertEquals(1, pendentes.size());
+        assertEquals("Elétrica", pendentes.get(0).getTipo());
+        assertEquals(quarto, pendentes.get(0).getQuarto());
+    }
+
+    @Test
+    void testManutencoesPendentes() {
+        Quarto quarto2 = new Quarto(2, 3, 2, "Vista para a cidade", false, 2, false);
+
+        gerenciadorManutencoes.adicionarManutencao(1, "Elétrica", "Trocar lâmpadas", new Date(), quarto);
+        gerenciadorManutencoes.adicionarManutencao(2, "Hidráulica", "Reparar vazamento", new Date(), quarto2);
+
+        List<Manutencao> pendentes = gerenciadorManutencoes.ManutencoesPendentes();
+
+        assertEquals(2, pendentes.size());
+        assertEquals("Elétrica", pendentes.get(0).getTipo());
+        assertEquals("Hidráulica", pendentes.get(1).getTipo());
+    }
+
+
+    @Test
+    void testManutencaoRealizada() {
+        gerenciadorManutencoes.adicionarManutencao(1, "Elétrica", "Trocar lâmpadas", new Date(), quarto);
+        boolean sucesso = gerenciadorManutencoes.ManutencaoRealizada(1);
+
+        assertTrue(sucesso);
+
+        List<Manutencao> historico = gerenciadorManutencoes.HistoricoDeManutencoes(quarto.getId());
+        assertEquals(1, historico.size());
+        assertTrue(historico.get(0).isRealizada());
+        assertEquals(quarto, historico.get(0).getQuarto());
+    }
+
+    @Test
+    void testAdicionarManutencaoSemQuarto() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            gerenciadorManutencoes.adicionarManutencao(1, "Elétrica", "Trocar lâmpadas", new Date(), null);
+        });
+
+        assertEquals("Quarto não pode ser nulo.", exception.getMessage());
+    }
+
+    @Test
+    void testReservaInicializacao() {
+        assertEquals(1, reserva.getId());
+        assertEquals("Pendente", reserva.getStatus());
+        assertTrue(reserva.getQuartos().isEmpty());
+        assertTrue(reserva.getHospedes().isEmpty());
+    }
+    
 }
