@@ -61,16 +61,18 @@ public class GerenciaReservas {
         reserva.setStatus("Confirmado");
     }
 
-    public Quarto sugerirReserva(Date dataInicio, Date dataFim, Integer capacidade, Boolean cozinha) {
+    public Quarto sugerirReserva(Date dataInicio, Date dataFim, Integer capacidade, Boolean cozinha, String tipoVista) {
         return quartos.stream()
                 .filter(q -> reservas.stream()
                         .noneMatch(r -> r.getQuartos().contains(q) &&
                                 (dataInicio.before(r.getDataFim()) && dataFim.after(r.getDataInicio()))))
                 .filter(q -> capacidade == null || q.getCapacidade() >= capacidade)
                 .filter(q -> cozinha == null || q.isCozinha() == cozinha)
+                .filter(q -> tipoVista == null || q.getTipoVista().equalsIgnoreCase(tipoVista))
                 .findFirst()
                 .orElse(null);
     }
+    
     
 
     public void adicionarQuarto(Quarto quarto) {
