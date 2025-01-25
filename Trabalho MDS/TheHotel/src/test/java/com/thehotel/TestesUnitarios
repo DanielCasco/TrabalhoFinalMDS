@@ -1,4 +1,4 @@
-package com.thehotel;
+ppackage com.thehotel;
 
 import java.util.Date;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
@@ -113,7 +114,77 @@ class TestesUnitarios {
 
     // Verificar o status da reserva
     assertEquals("Confirmado", reserva.getStatus());
-}
+    }
+
+
+    @Test
+    void testSugerirQuarto() {
+        Date dataInicio = new Date();
+        Date dataFim = new Date(dataInicio.getTime() + 86400000L);
+
+        // Adiciona alguns quartos para o sistema
+        Quarto quarto1 = new Quarto(1, 2, 1, "Vista para o mar", true, 1, true);
+        Quarto quarto2 = new Quarto(2, 4, 2, "Vista para a cidade", false, 2, true);
+        Quarto quarto3 = new Quarto(3, 2, 1, "Vista para a montanha", false, 1, false);
+
+        GerenciaReservas.adicionarQuarto(quarto1);
+        GerenciaReservas.adicionarQuarto(quarto2);
+        GerenciaReservas.adicionarQuarto(quarto3);
+
+        // Sugerir quarto com capacidade de 2 e cozinha
+        Quarto sugestao = GerenciaReservas.sugerirReserva(dataInicio, dataFim, 2, true);
+
+        assertNotNull(sugestao);
+        assertEquals(1, sugestao.getId());
+        assertEquals("Vista para o mar", sugestao.getTipoVista());
+        assertTrue(sugestao.isCozinha());
+
+        // Testar quando não houver sugestão adequada
+        Quarto sugestaoInvalida = GerenciaReservas.sugerirReserva(dataInicio, dataFim, 6, true);
+        assertNull(sugestaoInvalida);
+    }
+
+    @Test
+    void testCriarReservaDisponivel() {
+        Date dataInicio = new Date();
+        Date dataFim = new Date(dataInicio.getTime() + 86400000L); 
+
+        // Adicionar quarto disponível e hóspede
+        GerenciaReservas.adicionarQuarto(quarto);
+        Utilizador hospede = new Utilizador(1, "João Silva", "joao@email.com");
+        GerenciaReservas.adicionarUtilizador(hospede);
+
+        // Criar a reserva
+        Reserva novaReserva = GerenciaReservas.criarReserva(1, dataInicio, dataFim, 1, 1);
+
+        // Verificações
+        assertNotNull(novaReserva);
+        assertEquals(1, novaReserva.getId());
+        assertEquals(dataInicio, novaReserva.getDataInicio());
+        assertEquals(dataFim, novaReserva.getDataFim());
+        assertEquals("Pendente", novaReserva.getStatus());
+        assertEquals(1, novaReserva.getQuartos().size());
+        assertFalse(quarto.isDisponivel()); // Quarto agora está indisponível
+    }
+
+    @Test
+    void testCriarReservaIndisponivel() {
+        // Configurar quarto como indisponível
+        quarto.setDisponivel(false);
+        GerenciaReservas.adicionarQuarto(quarto);
+        Utilizador hospede = new Utilizador(1, "João Silva", "joao@email.com");
+        GerenciaReservas.adicionarUtilizador(hospede);
+
+        // Verificar exceção ao tentar criar reserva para quarto indisponível
+        Date dataInicio = new Date();
+        Date dataFim = new Date(dataInicio.getTime() + 86400000L);
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            GerenciaReservas.criarReserva(1, dataInicio, dataFim, 1, 1);
+        });
+
+        assertEquals("O quarto não está disponível para reserva.", exception.getMessage());
+    }
 
 
 
