@@ -71,5 +71,17 @@ public class Manutencao {
     public void setQuarto(Quarto quarto) {
         this.quarto = quarto;
     }
+
+        @Override
+    public String toString() {
+        return "Manutencao{" +
+                "id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", data=" + data +
+                ", realizada=" + realizada +
+                ", quarto=" + (quarto != null ? quarto.getId() : "Nenhum") +
+                '}';
+    }
 }
 
