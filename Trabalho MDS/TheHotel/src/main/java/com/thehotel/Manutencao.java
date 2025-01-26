@@ -8,6 +8,7 @@ public class Manutencao {
     private String descricao;
     private Date data;
     private boolean realizada;
+    private Quarto quarto; 
 
     public Manutencao(int id, String tipo, String descricao, Date data) {
         this.id = id;
@@ -15,6 +16,7 @@ public class Manutencao {
         this.descricao = descricao;
         this.data = data;
         this.realizada = false;
+        this.quarto = quarto;
     }
 
     public void marcarComoRealizada() {
@@ -60,6 +62,14 @@ public class Manutencao {
 
     public void setRealizada(boolean realizada) {
         this.realizada = realizada;
+    }
+
+        public Quarto getQuarto() {
+        return quarto;
+    }
+
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
     }
 }
 
