@@ -10,7 +10,7 @@ public class Manutencao {
     private boolean realizada;
     private Quarto quarto; 
 
-    public Manutencao(int id, String tipo, String descricao, Date data) {
+    public Manutencao(int id, String tipo, String descricao, Date dat, Quarto quarto) {
         this.id = id;
         this.tipo = tipo;
         this.descricao = descricao;
