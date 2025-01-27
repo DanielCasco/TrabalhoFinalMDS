@@ -16,29 +16,24 @@ public class GerenciaReservas {
     }
 
     public Reserva criarReserva(int id, Date dataInicio, Date dataFim, int quartoId, int hospedeId) {
-        // Buscar quarto pelo ID
         Quarto quarto = quartos.stream()
                 .filter(q -> q.getId() == quartoId)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Quarto não encontrado"));
     
-        // Verificar se o quarto está disponível
         if (!quarto.isDisponivel()) {
             throw new IllegalArgumentException("O quarto não está disponível para reserva.");
         }
     
-        // Buscar hóspede pelo ID
         Utilizador hospede = utilizadores.stream()
                 .filter(u -> u.getId() == hospedeId)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Hóspede não encontrado"));
         Reserva novaReserva = new Reserva(id, dataInicio, dataFim);
     
-        // Adicionar o quarto e o hóspede à reserva
         novaReserva.adicionarQuarto(quarto);
         novaReserva.adicionarHospede(hospede);
     
-        // Alterar a disponibilidade do quarto para false
         quarto.setDisponivel(false);
         reservas.add(novaReserva);
     
@@ -51,13 +46,12 @@ public class GerenciaReservas {
     }
 
     public void confirmarReserva(int reservaId) {
-        // Buscar a reserva pelo ID
+        
         Reserva reserva = reservas.stream()
                 .filter(r -> r.getId() == reservaId)
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Reserva não encontrada"));
     
-        // Alterar o status da reserva para "Confirmado"
         reserva.setStatus("Confirmado");
     }
 

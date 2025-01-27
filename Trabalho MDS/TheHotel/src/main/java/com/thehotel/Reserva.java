@@ -22,16 +22,16 @@ public class Reserva {
     }
 
     @Override
-public String toString() {
-    return "Reserva{" +
-            "id=" + id +
-            ", dataInicio=" + dataInicio +
-            ", dataFim=" + dataFim +
-            ", status='" + status +
-            ", quartos=" + quartos +
-            ", hospedes=" + hospedes +
-            '}';
-}
+    public String toString() {
+        return "Reserva{" +
+                "id=" + id +
+                ", dataInicio=" + dataInicio +
+                ", dataFim=" + dataFim +
+                ", status='" + status +
+                ", quartos=" + quartos +
+                ", hospedes=" + hospedes +
+                '}';
+    }
 
     public void adicionarQuarto(Quarto quarto) {
         quartos.add(quarto);
