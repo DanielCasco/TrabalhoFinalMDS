@@ -71,10 +71,6 @@ class TestesUnitarios {
         assertEquals(1, quarto.getId());  
     }
 
-
-
-
-
     @Test
     public void testCriarReserva() {
         Date dataInicio = new Date();
@@ -160,7 +156,7 @@ class TestesUnitarios {
 
         // Adicionar quarto disponível e hóspede
         GerenciaReservas.adicionarQuarto(quarto);
-        Utilizador hospede = new Utilizador(1, "João Silva", "joao@email.com");
+        Utilizador hospede = new Utilizador(1, "João", "joao@email.com");
         GerenciaReservas.adicionarUtilizador(hospede);
 
         // Criar a reserva
@@ -178,7 +174,7 @@ class TestesUnitarios {
 
     @Test
     void testCriarReservaParaQuartoIndisponivel() {
-        // Configurar quarto como indisponível
+        // Definir quarto como indisponível
         quarto.setDisponivel(false);
         GerenciaReservas.adicionarQuarto(quarto);
         Utilizador hospede = new Utilizador(1, "João", "joao@email.com");
@@ -217,13 +213,13 @@ class TestesUnitarios {
         Quarto quarto2 = new Quarto(2, 3, 2, "Vista para a cidade", false, 2, false);
 
         gerenciadorManutencoes.adicionarManutencao(1, "Elétrica", "Trocar lâmpadas", new Date(), quarto);
-        gerenciadorManutencoes.adicionarManutencao(2, "Hidráulica", "Reparar vazamento", new Date(), quarto2);
+        gerenciadorManutencoes.adicionarManutencao(2, "Água", "Reparar água fria", new Date(), quarto2);
 
         List<Manutencao> pendentes = gerenciadorManutencoes.ManutencoesPendentes();
 
         assertEquals(2, pendentes.size());
         assertEquals("Elétrica", pendentes.get(0).getTipo());
-        assertEquals("Hidráulica", pendentes.get(1).getTipo());
+        assertEquals("Água", pendentes.get(1).getTipo());
     }
 
 
