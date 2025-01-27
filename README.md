@@ -1,5 +1,4 @@
 # TrabalhoFinalMDS
-
  Este trabalho, desenvolvido no âmbito da disciplina de Tecnologias Web, tem como objetivo a implementação do sistema TheHotel que foi especificado na primeira parte do projeto através de requisitos e diagramas de classes. Para isto, começamos por criar as classes que foram definidas no diagrama. Decidímos não criar as classes ocorrencias, avaliação e hóspede já que as funções relacionadas a estas classes não devem ser implementadas. Também decidimos não criar uma classe hóspede uma vez que todas as funções de reserva serão feitas pelo funcionário ou gestor, simplesmente usando a classe utilizador para os exemplos demonstrados no main.
 
 ## Classes
